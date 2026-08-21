@@ -1,0 +1,9 @@
+name: tn-watch-demo
+source_1_url: 'http://hn.algolia.com/api/v1/search?tags=story&query=security&hitsPerPage=20'
+source_1_type: json
+source_1_items_field: hits
+source_1_title_field: title
+source_1_link_field: url
+source_1_text_field: title
+keywords: [security, breach, vulnerability]
+seen_file: .tnwatch_seen.json

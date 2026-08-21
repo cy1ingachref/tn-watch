@@ -1,0 +1,9 @@
+name: tn-watch-fixture
+source_1_url: fixture://local
+source_1_type: json
+source_1_items_field: items
+source_1_title_field: title
+source_1_link_field: link
+source_1_text_field: body
+keywords: [cybersecurity, tender]
+seen_file: tests/.seen_fixture.json
