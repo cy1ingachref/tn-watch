@@ -1,5 +1,7 @@
 # tn-watch — Zero-Dependency Change Monitor
 
+[![CI](https://github.com/cy1ingachref/tn-watch/actions/workflows/ci.yml/badge.svg)](https://github.com/cy1ingachref/tn-watch/actions/workflows/ci.yml)
+
 A zero-dependency change/digest monitor. Point it at any RSS/Atom feed, JSON API, or HTML page, give it keywords, and it tells you what's *new* — and dedupes so you never get the same alert twice. Pure Python stdlib (no `requests`, no pip), runs anywhere Python 3.8+ exists.
 
 ## What it does
