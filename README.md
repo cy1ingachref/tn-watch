@@ -1,31 +1,22 @@
-# tn-watch
+# tn-watch — Zero-Dependency Change Monitor
 
-A **zero-dependency** change/digest monitor. Point it at any RSS/Atom feed,
-JSON API, or HTML page, give it keywords, and it tells you what's *new* — and
-dedupes so you never get the same alert twice. Pure Python stdlib (no
-`requests`, no pip), runs anywhere Python 3.8+ exists, including a free-tier
-cron.
-
-> The green-check proves it: `python tests/test_tnwatch.py` → `ALL GREEN ✓`
-> (matches keyword items on first run, 0 on second run = dedupe works).
+A zero-dependency change/digest monitor. Point it at any RSS/Atom feed, JSON API, or HTML page, give it keywords, and it tells you what's *new* — and dedupes so you never get the same alert twice. Pure Python stdlib (no `requests`, no pip), runs anywhere Python 3.8+ exists.
 
 ## What it does
 
-- **Sources**: `rss` / `atom` / `json` / `html`
-- **Keywords**: case-insensitive; an item matches if ANY keyword appears in
-  its title or body
-- **Dedupe**: seen items persisted to `seen_file`, so re-runs stay silent on
-  old news
-- **Zero cost**: stdlib only; no API keys, no paid tiers
+- **Sources**: RSS, Atom, JSON APIs, HTML pages
+- **Keywords**: Case-insensitive matching against titles and body text
+- **Dedupe**: Seen items persisted to a local file, so re-runs stay silent on old content
+- **Zero cost**: No API keys, no paid tiers, runs on free-tier cron
 
-## Run it
+## Quick start
 
 ```bash
 python tnwatch.py config.demo.yml     # live demo: HN "security" stories
 python tests/test_tnwatch.py           # green-check (offline, deterministic)
 ```
 
-## Config (numbered sources, flow-list keywords)
+## Configuration
 
 ```yaml
 name: my-monitor
@@ -41,23 +32,23 @@ keywords: [tender, cybersecurity]
 seen_file: .tnwatch_seen.json
 ```
 
-## The offer (Tunisia / MENA)
+## Output
 
-I'll **configure and run tn-watch for your specific need** — e.g. watch
-government tenders, job boards, competitor pricing, compliance updates, or
-RSS feeds in your sector — and deliver a daily digest to your email/WhatsApp.
+Prints a digest of new items matching keywords since the last run. Suitable for piping to email, Slack, or Telegram.
 
-- **30 TND / month** (≈ $10), paid via **Flouci**
-- One-time setup included; you get the repo + the running config
-- Zero infrastructure cost; runs on a free tier
+## Tests
 
-→ Message me with: *what to watch* + *which keywords* + *where to send the digest*.
-
-## Layout
-
+```bash
+python tests/test_tnwatch.py
 ```
-tnwatch.py              the monitor (stdlib only)
-config.demo.yml         live HN demo config
-tests/                  green-check harness + fixture config
-.github/workflows/      CI runs the green-check on every push
-```
+
+Verifies keyword matching and dedupe behavior with offline fixtures.
+
+## Requirements
+
+- Python 3.8+
+- No external dependencies
+
+## License
+
+MIT
